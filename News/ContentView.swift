@@ -25,13 +25,13 @@ struct ContentView: View {
                             Text(i.desc)
                         }.frame(height: 200)
                         
-                        WebImage(url: URL(string: i.image)!, options: .highPriority, context: nil)
+                        WebImage(url: URL(string: i.image) ?? URL(string: "https://media4.s-nbcnews.com/i/newscms/2019_01/2705191/nbc-social-default_b6fa4fef0d31ca7e8bc7ff6d117ca9f4.png") , options: .highPriority, context: nil)
                             .resizable().frame(width: 110, height: 135)
                             .scaledToFit()
                             .cornerRadius(20)
                     }.padding(.vertical, 15)
                 }
-            }.navigationBarTitle("Новости России")
+            }.navigationBarTitle("Новости Россиии")
         }
     }
 }
@@ -43,11 +43,11 @@ struct ContentView_Previews: PreviewProvider {
 }
  
 struct dataType : Identifiable {
-    var id : String
-    var title: String
-    var desc: String
-    var url: String
-    var image: String
+    var id : String = "id"
+    var title: String = "Новость загружается..."
+    var desc: String = " "
+    var url: String = "https://www.mk.ru/"
+    var image: String = "https://media4.s-nbcnews.com/i/newscms/2019_01/2705191/nbc-social-default_b6fa4fef0d31ca7e8bc7ff6d117ca9f4.png"
 }
 
 class getData: ObservableObject{
